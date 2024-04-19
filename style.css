@@ -1,0 +1,55 @@
+body{
+    font-family: Monospace;
+    font-size: large;
+    background-color: cyan;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+header{
+    font-family: Monospace;
+    background-color: black;
+    height: 80px;
+    width: 100%;
+    padding-bottom: 10px;
+
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    
+}
+h1{
+    font-family: Monospace;
+    color: cyan;
+    padding-bottom: 10px;
+}
+#myForm{
+    width: 50%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: aquamarine;
+    border-radius: 8px;
+    margin: 20px;
+}
+.movie_img_rounded {
+    border-radius: 3rem;
+}
+footer{
+    background-color: rgb(65, 65, 255);
+    height: 80px;
+    width: 100%;
+    margin-top: auto;
+    
+}
