@@ -24,9 +24,11 @@ header{
 }
 main{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 20px;
     flex-grow: 1;
     
 }
@@ -45,6 +47,20 @@ h1{
 }
 .movie_img_rounded {
     border-radius: 3rem;
+}
+.movie_item{
+    border: 5px solid #111;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: calc(33% - 20px);
+    background-color: white;
+    text-align: center;
+   
+    
+
 }
 footer{
     background-color: rgb(65, 65, 255);

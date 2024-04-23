@@ -15,14 +15,23 @@
     </header>
     <main>
         <form id="searchForm">
-            <input typ="text" id="search" name="search" placeholder="Search for movie">
-            <button type="submit">Search</button>
+            <input type="text" id="search" name="search">
+            <input type="radio" id="movies" name="category" value="movies" checked>
+            <label for="movies">Movies</label>
+
+            <input type="radio" id="tvShows" name="category" value="tv_shows">
+            <label for="tvShows">Tv Shows</label>
+
+            <input type="radio" id="actors" name="category" value="actors">
+            <label for="actors">Actors</label>
+
+            <input type="submit" value="Search">
 
         </form>
 
         <div id="imgDiv"></div>
         
-        <div id="movies"></div>
+        <div id="moviesContainer"></div>
     </main>
     <footer>
         <p>&copy; Created by Neil </p>
