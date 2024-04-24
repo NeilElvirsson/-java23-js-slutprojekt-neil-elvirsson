@@ -2,8 +2,6 @@ console.log("Hello World!");
 
 const API_KEY = "9626218391ae38329b6d11901b20a32e";
 
-//const url = `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}`;
-
 //Gets our referenses to the DOM-element.
 const moviesContainer = document.getElementById("moviesContainer");
 const searchForm = document.getElementById("searchForm");
@@ -19,11 +17,12 @@ searchForm.addEventListener('submit', function (event) {
 
 
   //If searchterm is empty and radio button movies or action is selected show trending
-  if (searchTerm === '' && selectedCategory === "movies") {
-    searchUrl = `https://api.themoviedb.org/3//movie/top_rated?api_key=${API_KEY}`;
+  if (searchTerm === '' && selectedCategory === "top_rated") {
+    searchUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
+    
   }
-    else if (searchTerm === '' && selectedCategory === "tv_shows") {
-      searchUrl = `https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}`;
+    else if (searchTerm === '' && selectedCategory === "popular") {
+      searchUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
     
       //Else if a searchterm is put in and radio button is choosen, show the matching results
   } else {
@@ -43,18 +42,41 @@ searchForm.addEventListener('submit', function (event) {
     .then((res) => res.json())
     .then((data) => {
 
-      const topRatedMovies = data.results.slice(0, 10);
+      //const topRatedMovies = data.results.slice(0, 10);
 
       //console.log(json))
       moviesContainer.innerHTML = '';
 
       //Loops trough our movieobject from data results and creates a moviecard which we put in our movieconatiner
       //If there is no result error message will appear
-      if (data.results.length === 0) {
+      if (data.results.length === 0 && selectedCategory === "movies") {
         const errorMessage = document.createElement('div');
-        errorMessage.textContent = "No movie found matching the description!";
+        errorMessage.classList.add('errorDiv');
+        errorMessage.textContent = "No movies found matching the description!";
+        moviesContainer.innerHTML = '';
         moviesContainer.appendChild(errorMessage);
 
+      } else if (data.results.length === 0 && selectedCategory === "tv_shows"){
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('errorDiv');
+        errorMessage.textContent = "No tv shows found matching the description!";
+        moviesContainer.innerHTML = '';
+        moviesContainer.appendChild(errorMessage);
+
+      } else if (data.results.length === 0 && selectedCategory === "actors") {
+          const errorMessage = document.createElement('div');
+          errorMessage.classList.add('errorDiv');
+        errorMessage.textContent = "No actors found matching the description!";
+        moviesContainer.innerHTML = '';
+        moviesContainer.appendChild(errorMessage);
+        
+      } else if (selectedCategory === "top_rated" || selectedCategory === "popular") {
+
+        data.results.slice(0, 10).forEach(media => {
+          const movieCard = createMovieCard(media);
+          moviesContainer.appendChild(movieCard);
+          console.log(data);
+        });
       } else {
 
         data.results.forEach(media => {
@@ -62,23 +84,10 @@ searchForm.addEventListener('submit', function (event) {
           moviesContainer.appendChild(movieCard);
           console.log(data);
         });
+
       }
     })
     .catch((err) => console.error("error:" + err));
-
-
-
-  //If no searchTerm is written error message will appear
-  const errorMessage = document.createElement('div');
-  errorMessage.textContent = "An error occurred!";
-  moviesContainer.appendChild(errorMessage);
-
-if (searchTerm === '') {
-  const errorMessage = document.createElement('div');
-  errorMessage.textContent = "Please enter a movie to search for";
-  moviesContainer.appendChild(errorMessage);
-}
-
 });
 
 //Function that extracts title, creates the movie card in our div element,
