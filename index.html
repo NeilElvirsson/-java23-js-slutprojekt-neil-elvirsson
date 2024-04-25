@@ -14,35 +14,41 @@
 
     </header>
     <main>
-        <form id="searchForm">
-            <input type="text" id="search" name="search">
-            <input type="radio" id="movies" name="category" value="movies" checked>
-            <label for="movies">Movies</label>
+       <div id="mainDiv">
+        <div id="formContainer">
+            <form id="searchForm">
+                <input type="text" id="search" name="search">
+                <input type="radio" id="movies" name="category" value="movies" checked>
+                <label for="movies">Movies</label>
+    
+                <input type="radio" id="actors" name="category" value="actors">
+                <label for="actors">Actors</label>
+    
+                <input type="radio" id="top_rated" name="category" value="top_rated">
+                <label for="top_rated">Top rated</label>
+    
+                <input type="radio" id="popular" name="category" value="popular">
+                <label for="popular">Popular</label>
+    
+                <input type="submit" value="Search">
+    
+            </form>
+        </div>
+        <div id="moviesContainer">
 
-            <input type="radio" id="tvShows" name="category" value="tv_shows">
-            <label for="tvShows">Tv Shows</label>
-
-            <input type="radio" id="actors" name="category" value="actors">
-            <label for="actors">Actors</label>
-
-            <input type="radio" id="top_rated" name="category" value="top_rated">
-            <label for="top_rated">Top rated</label>
-
-            <input type="radio" id="popular" name="category" value="popular">
-            <label for="popular">Popular</label>
-
-            <input type="submit" value="Search">
-
-        </form>
-
-        <div id="imgDiv"></div>
+        </div>
+       </div>
+      
         
-        <div id="movie_item"></div>
+        <!--<div id="imgDiv"></div>-->
+        <!--<div id="movie_item"></div>-->
+        <!-- <div id="actorsContainer"></div>-->
+         
         
-        <div id="moviesContainer"></div>
+        
 
         
-        <!--<div id="errorDiv"></div>> -->
+        
     </main>
     <footer>
         <p>&copy; Created by Neil </p>

@@ -1,7 +1,7 @@
 body{
     font-family: Monospace;
     font-size: large;
-    background-color: cyan;
+    background-color: rgba(0, 0, 113, 0.127);
     min-height: 100%;
     margin: 0;
     padding: 0;
@@ -50,7 +50,7 @@ h1{
 
 
 .movie_img_rounded {
-    border-radius: 3rem;
+    border-radius: 2rem;
 }
 .movie_item{
     border: 5px solid #111;
@@ -58,21 +58,28 @@ h1{
     padding: 10px;
     border-radius: 10px;
 
-   
-
     flex-direction: column;
-    width: calc(33% - 20px);
-    background-color: white;
+    width:600px;
+    
+    background-color: darkgray;
     text-align: center;
 }
-
+.actor_item{
+    border: 5px solid #111;
+    margin: 10px;
+    padding: 10px;
+    flex-direction: column;
+    background-color: darkgray;
+    text-align: center;
+    
+}
 .errorDiv{
     font-family: Arial, Helvetica, sans-serif;
     font-size: x-large;
     color: red;
     display: flex;
     place-items: center;
-    height: 100vh;
+    
 }
 footer{
     background-color: black;
