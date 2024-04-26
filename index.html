@@ -17,20 +17,33 @@
        <div id="mainDiv">
         <div id="formContainer">
             <form id="searchForm">
+
+               
+
                 <input type="text" id="search" name="search">
-                <input type="radio" id="movies" name="category" value="movies" >
+                <input type="submit" value="Search">
+                <input type="radio" id="movies" name="category" value="movies" checked>
                 <label for="movies">Movies</label>
     
                 <input type="radio" id="actors" name="category" value="actors">
                 <label for="actors">Actors</label>
     
-                <input type="radio" id="top_rated" name="category" value="top_rated" checked>
+                 <!--
+                <button id="topRatedButton" type="button">Top Rated</button>
+                <button id="popularButton" type="button">Popular</button>
+
+                -->
+
+                <input type="radio" id="top_rated" name="category" value="top_rated">
                 <label for="top_rated">Top rated</label>
-    
+                
                 <input type="radio" id="popular" name="category" value="popular">
                 <label for="popular">Popular</label>
-    
-                <input type="submit" value="Search">
+                
+               
+                
+                
+                
     
             </form>
         </div>

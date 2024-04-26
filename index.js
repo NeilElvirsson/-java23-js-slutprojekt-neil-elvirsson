@@ -16,12 +16,27 @@ searchForm.addEventListener('submit', function (event) {
   //Gets the matching css choice in our input where the attibute name is set to category wich is marked with checked
   const selectedCategory = document.querySelector('input[name="category"]:checked').value;
   let searchUrl;
-  
 
   //If searchterm is empty and radio button movies or action is selected show top rated or popular
   if (searchTerm === '' && selectedCategory === "top_rated") {
     searchUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
 
+  }
+  else if (searchTerm !== '' && selectedCategory === "top_rated") {
+    console.log("Error, search need to be empty!");
+    const errorMessage = document.createElement('div');
+    errorMessage.classList.add('errorDiv');
+    errorMessage.textContent = "Searchfield needs to be empty when searching for top rated movies!";
+    moviesContainer.innerHTML = '';
+    moviesContainer.appendChild(errorMessage);
+  }
+  else if (searchTerm !== '' && selectedCategory === "popular") {
+    console.log("Error, search need to be empty!");
+    const errorMessage = document.createElement('div');
+    errorMessage.classList.add('errorDiv');
+    errorMessage.textContent = "Searchfield needs to be empty when searching for popular movies!";
+    moviesContainer.innerHTML = '';
+    moviesContainer.appendChild(errorMessage);
   }
   else if (searchTerm === '' && selectedCategory === "popular") {
     searchUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
