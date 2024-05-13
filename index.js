@@ -52,7 +52,7 @@ searchForm.addEventListener('submit', function (event) {
     }
   }
 
-  //We do a get-request to our url and convert the answer to json-format, of response is ok
+  //We do a get-request to our url and convert the answer to json-format, if response is ok
   
   fetch(searchUrl)
     .then((res) => {
@@ -111,7 +111,12 @@ searchForm.addEventListener('submit', function (event) {
     //Catch for error handling
     .catch((err) => {
       console.error("Error fetching data:" + err);
-      displayError("There was an error fetching data!")
+
+      const errorMessage = document.createElement('div');
+        errorMessage.classList.add('errorDiv');
+        errorMessage.textContent = "There was an error fetching data!";
+        moviesContainer.innerHTML = '';
+        moviesContainer.appendChild(errorMessage);
 
     });
 
