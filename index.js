@@ -58,6 +58,8 @@ searchForm.addEventListener('submit', function (event) {
     .then((res) => {
       if (!res.ok) {
         throw new Error('Network response was not ok');
+
+
       }
       return res.json();
     })
@@ -110,7 +112,7 @@ searchForm.addEventListener('submit', function (event) {
     })
     //Catch for error handling
     .catch((err) => {
-      console.error("Error fetching data:" + err);
+      console.log("Error fetching data:" + err);
 
       const errorMessage = document.createElement('div');
         errorMessage.classList.add('errorDiv');
